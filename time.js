@@ -18,21 +18,23 @@ app.get('/',function(req,res){
   res.render('time', genContext());
 });
 
-app.use(function(req,res){
-  res.status(404);
-  res.render('404');
-});
-
 
 function randomNumber() {
-	let randNum = {};
-	randNum.num = Math.random();
-	return randNum.toString();
+	var randNum = {};
+	randNum.number = Math.random();
+	return randNum();
 }
 
 app.get('/random', function(req, res) {
 	res.render('display-number', randomNumber());
 });
+
+
+app.use(function(req,res){
+  res.status(404);
+  res.render('404');
+});
+
 
 app.use(function(err, req, res, next){
   console.error(err.stack);
