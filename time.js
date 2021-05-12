@@ -19,14 +19,14 @@ app.get('/',function(req,res){
 });
 
 
-function randomNumber() {
+function genNumber() {
 	var randNum = {};
 	randNum.number = Math.random();
-	return randNum();
+	return randNum;
 }
 
 app.get('/random', function(req, res) {
-	res.render('display-number', randomNumber());
+	res.render('display-number', genNumber());
 });
 
 
