@@ -23,6 +23,17 @@ app.use(function(req,res){
   res.render('404');
 });
 
+
+function randomNumber() {
+	let randNum = {};
+	randNum.num = Math.random();
+	return randNum.toString();
+}
+
+app.get('/random', function(req, res) {
+	res.render('display-number', randomNumber());
+});
+
 app.use(function(err, req, res, next){
   console.error(err.stack);
   res.type('plain/text');
